@@ -1,5 +1,4 @@
 //---------------------------------------------------------------------------
-
 #pragma hdrstop
 
 #include <conio.h>
@@ -9,21 +8,12 @@
 
 using namespace std;
 //---------------------------------------------------------------------------
-// Выводит строку s в консоль русскими буквами
-//void PrintRus(char *s)
-//{
-//    char s1[100];
-//    CharToOem(s, s1); // Делаем перекодировку
-//    cout << s1;
-//}
-
 int m; // Размер хеш-таблицы
 int table[100]; // Хеш-таблица
 int n; // Размер массива чисел
 int a[100]; // Массив чисел
 bool overflow; // Равна true, если было переполнение таблицы
 int collisions; // Количество коллизий
-
 // Вычисляет хеш-функцию
 int HashF(int num) {
     return num % m;
@@ -99,7 +89,6 @@ void ShowTable() {
         printf("------------------------\n");
         printf("| Cell number | Number |\n");
         printf("------------------------\n");
-//        printf("| Number      | ");
         for (int i = 0; i < m; i++) {
             s++;
             if (table[i] != 0) {
@@ -161,14 +150,14 @@ int main(int argc, char *argv[]) {
     printf("\nEnter the size of the hash table: \n");
     cin >> m;
     if (m < 1) {
-        printf("Enter a number greater than 0!");
+        printf("\nEnter a number greater than 0!\n");
         system("PAUSE");
         return 0;
     }
     printf("\nEnter the number of source numbers: \n");
     cin >> n;
     if (n < 1) {
-        printf("Enter a number greater than 0!");
+        printf("\nEnter a number greater than 0!\n");
         system("PAUSE");
         return 0;
     }
@@ -198,10 +187,7 @@ int main(int argc, char *argv[]) {
         printf("\nThe number of found\n");
     else
         printf("\nThe number is not found\n");
-
-    getch();
     system("PAUSE");
     return 0;
 }
 //---------------------------------------------------------------------------
- 
