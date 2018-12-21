@@ -94,16 +94,21 @@ void CreateTable2() {
 
 // Выводит хеш-таблицу на экран
 void ShowTable() {
-    if (m == 11) {
-        printf("-----------------------------------------------------------------------\n");
-        printf("| cell number |  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 |\n");
-        printf("-----------------------------------------------------------------------\n");
-        printf("| Number      | ");
-        for (int i = 0; i < m; i++)
-            if (table[i] != 0)
-                printf("%2d | ", table[i]);
-            else
+    int s = 0;
+    if (m > 0) {
+        printf("------------------------\n");
+        printf("| Cell number | Number |\n");
+        printf("------------------------\n");
+//        printf("| Number      | ");
+        for (int i = 0; i < m; i++) {
+            s++;
+            if (table[i] != 0) {
+
+                printf("|%2d           | %2d     |\n", s, table[i]);
+            } else
                 printf("   | ");
+            printf("------------------------\n");
+        }
         cout << endl;
         printf("-----------------------------------------------------------------------\n");
     }
@@ -155,9 +160,18 @@ bool Search2(int num) {
 int main(int argc, char *argv[]) {
     printf("\nEnter the size of the hash table: \n");
     cin >> m;
+    if (m < 1) {
+        printf("Enter a number greater than 0!");
+        system("PAUSE");
+        return 0;
+    }
     printf("\nEnter the number of source numbers: \n");
     cin >> n;
-
+    if (n < 1) {
+        printf("Enter a number greater than 0!");
+        system("PAUSE");
+        return 0;
+    }
     int num; // Число для поиска
 
 //    rand();
@@ -186,6 +200,7 @@ int main(int argc, char *argv[]) {
         printf("\nThe number is not found\n");
 
     getch();
+    system("PAUSE");
     return 0;
 }
 //---------------------------------------------------------------------------
